@@ -1,14 +1,18 @@
 # Event sourcing for Artisans 📽
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-event-projector.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-event-projector)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-event-projector/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-event-projector)
-[![StyleCI](https://styleci.io/repos/133496112/shield?branch=master)](https://styleci.io/repos/133496112)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-event-projector.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-event-projector)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-event-projector.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-event-projector)
+This is a fork of spatie/laravel-event-projector, with support for Laravel 5.5.
+
+In order to run tests, I manually had to enter type hinting for all of the methods in Illuminate\Foundation\Testing\Constraints\HasInDatabase.
+
+Everything passes, except for `EventSerializerTest::it_serializes_an_event_to_json`, because it lacks the `'relations' => []` line in the resulting json. I am hoping this is not critical to the function of the system.
+
+Definitely treat this as experimental.
+
+---
 
 Event sourcing is to data what Git is to code <sup>[1](#footnote1)</sup>. Most applications have their current state stored in a database. By storing only the current state a lot of information is lost. You don't know how the application got in this state.
 
-Event sourcing tries to solve that problem by saving all events that happen in your app. The state of your application is built by listening to those events. 
+Event sourcing tries to solve that problem by saving all events that happen in your app. The state of your application is built by listening to those events.
 
 Here's a traditional example to make it more clear. Imagine you're a bank. Your clients have accounts. Instead of storing the balance of the accounts, you could store all the transactions. That way you not only know the balance of the account but also the reason why it's that specific number. There are many other benefits of storing events.
 
@@ -49,7 +53,7 @@ A big thank you to [Dries Vints](https://github.com/driesvints) for giving lots 
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
+Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie).
 All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## Footnotes
